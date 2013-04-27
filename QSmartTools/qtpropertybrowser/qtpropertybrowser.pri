@@ -1,5 +1,4 @@
 INCLUDEPATH += $$PWD
-DEPENDPATH += $$PWD
 SOURCES += $$PWD/qtpropertybrowser.cpp \
             $$PWD/qtpropertymanager.cpp \
             $$PWD/qteditorfactory.cpp \
@@ -16,3 +15,4 @@ HEADERS += $$PWD/qtpropertybrowser.h \
             $$PWD/qtbuttonpropertybrowser.h \
             $$PWD/qtgroupboxpropertybrowser.h \
             $$PWD/qtpropertybrowserutils_p.h
+RESOURCES += $$PWD/qtpropertybrowser.qrc

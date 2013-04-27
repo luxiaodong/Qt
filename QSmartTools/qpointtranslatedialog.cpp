@@ -8,6 +8,7 @@
 #include <QTextStream>
 #include <QMessageBox>
 #include <QFileDialog>
+#include <QMimeData>
 
 QPointTranslateDialog::QPointTranslateDialog(QWidget *parent) :
     QDialog(parent),

@@ -1,13 +1,7 @@
-# Compiled Object files
-*.slo
-*.lo
+*.user
 *.o
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-
-# Compiled Static libraries
-*.lai
-*.la
 *.a
+*.moc
+*~
+build-puzzleDragon-Desktop_Qt_5_0_2_GCC_32bit-Debug/*
+

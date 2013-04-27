@@ -220,7 +220,7 @@ void QTcpTestDialog::ergodicTreeForSend(QtProperty* parentProperty)
         {
             if(type == QString("TCHAR") || type == QString("char"))
             {
-                QByteArray arr = value.toAscii();
+                QByteArray arr = value.toLocal8Bit();
                 int size = arr.size();
                 for(int i = 0; i < arrayLength; ++i)
                 {

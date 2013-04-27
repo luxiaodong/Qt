@@ -1,17 +1,18 @@
 /****************************************************************************
 **
-** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
-** All rights reserved.
-** Contact: Nokia Corporation (qt-info@nokia.com)
+** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
+** Contact: http://www.qt-project.org/legal
 **
 ** This file is part of the tools applications of the Qt Toolkit.
 **
 ** $QT_BEGIN_LICENSE:LGPL$
-** Commercial Usage
-** Licensees holding valid Qt Commercial licenses may use this file in
-** accordance with the Qt Commercial License Agreement provided with the
+** Commercial License Usage
+** Licensees holding valid commercial Qt licenses may use this file in
+** accordance with the commercial license agreement provided with the
 ** Software or, alternatively, in accordance with the terms contained in
-** a written agreement between you and Nokia.
+** a written agreement between you and Digia.  For licensing terms and
+** conditions see http://qt.digia.com/licensing.  For further information
+** use the contact form at http://qt.digia.com/contact-us.
 **
 ** GNU Lesser General Public License Usage
 ** Alternatively, this file may be used under the terms of the GNU Lesser
@@ -21,8 +22,8 @@
 ** ensure the GNU Lesser General Public License version 2.1 requirements
 ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
 **
-** In addition, as a special exception, Nokia gives you certain additional
-** rights.  These rights are described in the Nokia Qt LGPL Exception
+** In addition, as a special exception, Digia gives you certain additional
+** rights.  These rights are described in the Digia Qt LGPL Exception
 ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
 **
 ** GNU General Public License Usage
@@ -33,8 +34,7 @@
 ** ensure the GNU General Public License version 3.0 requirements will be
 ** met: http://www.gnu.org/copyleft/gpl.html.
 **
-** If you have questions regarding the use of this file, please contact
-** Nokia at qt-info@nokia.com.
+**
 ** $QT_END_LICENSE$
 **
 ****************************************************************************/
@@ -102,23 +102,23 @@ public:
     provides functions for retrieving as well as setting their values:
 
     \table
-    \header \o Getter \o Setter
+    \header \li Getter \li Setter
     \row
-    \o propertyName() \o setPropertyName()
+    \li propertyName() \li setPropertyName()
     \row
-    \o statusTip() \o setStatusTip()
+    \li statusTip() \li setStatusTip()
     \row
-    \o toolTip() \o setToolTip()
+    \li toolTip() \li setToolTip()
     \row
-    \o whatsThis() \o setWhatsThis()
+    \li whatsThis() \li setWhatsThis()
     \row
-    \o isEnabled() \o setEnabled()
+    \li isEnabled() \li setEnabled()
     \row
-    \o isModified() \o setModified()
+    \li isModified() \li setModified()
     \row
-    \o valueText() \o Nop
+    \li valueText() \li Nop
     \row
-    \o valueIcon() \o Nop
+    \li valueIcon() \li Nop
     \endtable
 
     It is also possible to nest properties: QtProperty provides the
@@ -481,16 +481,6 @@ void QtProperty::removeSubProperty(QtProperty *property)
     }
 }
 
-void QtProperty::setData(QString key, QString value)
-{
-    m_map.insert(key, value);
-}
-
-QString QtProperty::data(QString key)
-{
-    return m_map.value(key, "");
-}
-
 /*!
     \internal
 */
@@ -559,23 +549,23 @@ void QtAbstractPropertyManagerPrivate::propertyInserted(QtProperty *property,
     implementations are available:
 
     \list
-    \o QtBoolPropertyManager
-    \o QtColorPropertyManager
-    \o QtDatePropertyManager
-    \o QtDateTimePropertyManager
-    \o QtDoublePropertyManager
-    \o QtEnumPropertyManager
-    \o QtFlagPropertyManager
-    \o QtFontPropertyManager
-    \o QtGroupPropertyManager
-    \o QtIntPropertyManager
-    \o QtPointPropertyManager
-    \o QtRectPropertyManager
-    \o QtSizePropertyManager
-    \o QtSizePolicyPropertyManager
-    \o QtStringPropertyManager
-    \o QtTimePropertyManager
-    \o QtVariantPropertyManager
+    \li QtBoolPropertyManager
+    \li QtColorPropertyManager
+    \li QtDatePropertyManager
+    \li QtDateTimePropertyManager
+    \li QtDoublePropertyManager
+    \li QtEnumPropertyManager
+    \li QtFlagPropertyManager
+    \li QtFontPropertyManager
+    \li QtGroupPropertyManager
+    \li QtIntPropertyManager
+    \li QtPointPropertyManager
+    \li QtRectPropertyManager
+    \li QtSizePropertyManager
+    \li QtSizePolicyPropertyManager
+    \li QtStringPropertyManager
+    \li QtTimePropertyManager
+    \li QtVariantPropertyManager
     \endlist
 
     \sa QtAbstractEditorFactoryBase, QtAbstractPropertyBrowser, QtProperty
@@ -788,7 +778,7 @@ QtProperty *QtAbstractPropertyManager::createProperty()
     property is being destroyed so that it can remove the property's
     additional attributes.
 
-    \sa clear(),  propertyDestroyed()
+    \sa clear(), propertyDestroyed()
 */
 void QtAbstractPropertyManager::uninitializeProperty(QtProperty *property)
 {
@@ -825,17 +815,17 @@ void QtAbstractPropertyManager::uninitializeProperty(QtProperty *property)
     implementations are available:
 
     \list
-    \o QtCheckBoxFactory
-    \o QtDateEditFactory
-    \o QtDateTimeEditFactory
-    \o QtDoubleSpinBoxFactory
-    \o QtEnumEditorFactory
-    \o QtLineEditFactory
-    \o QtScrollBarFactory
-    \o QtSliderFactory
-    \o QtSpinBoxFactory
-    \o QtTimeEditFactory
-    \o QtVariantEditorFactory
+    \li QtCheckBoxFactory
+    \li QtDateEditFactory
+    \li QtDateTimeEditFactory
+    \li QtDoubleSpinBoxFactory
+    \li QtEnumEditorFactory
+    \li QtLineEditFactory
+    \li QtScrollBarFactory
+    \li QtSliderFactory
+    \li QtSpinBoxFactory
+    \li QtTimeEditFactory
+    \li QtVariantEditorFactory
     \endlist
 
     \sa QtAbstractPropertyManager, QtAbstractPropertyBrowser
@@ -852,7 +842,7 @@ void QtAbstractPropertyManager::uninitializeProperty(QtProperty *property)
     which also provides a pure virtual convenience overload of this
     function enabling access to the property's manager.
 
-    \sa  QtAbstractEditorFactory::createEditor()
+    \sa QtAbstractEditorFactory::createEditor()
 */
 
 /*!
@@ -926,17 +916,17 @@ void QtAbstractPropertyManager::uninitializeProperty(QtProperty *property)
     are available:
 
     \list
-    \o QtCheckBoxFactory
-    \o QtDateEditFactory
-    \o QtDateTimeEditFactory
-    \o QtDoubleSpinBoxFactory
-    \o QtEnumEditorFactory
-    \o QtLineEditFactory
-    \o QtScrollBarFactory
-    \o QtSliderFactory
-    \o QtSpinBoxFactory
-    \o QtTimeEditFactory
-    \o QtVariantEditorFactory
+    \li QtCheckBoxFactory
+    \li QtDateEditFactory
+    \li QtDateTimeEditFactory
+    \li QtDoubleSpinBoxFactory
+    \li QtEnumEditorFactory
+    \li QtLineEditFactory
+    \li QtScrollBarFactory
+    \li QtSliderFactory
+    \li QtSpinBoxFactory
+    \li QtTimeEditFactory
+    \li QtVariantEditorFactory
     \endlist
 
     When deriving from the QtAbstractEditorFactory class, several pure virtual
@@ -1064,7 +1054,6 @@ void QtAbstractPropertyManager::uninitializeProperty(QtProperty *property)
     \fn virtual void QtAbstractEditorFactory::managerDestroyed(QObject *manager)
 
     \internal
-    \reimp
 */
 
 ////////////////////////////////////
@@ -1540,9 +1529,9 @@ void QtAbstractPropertyBrowserPrivate::slotPropertyDataChanged(QtProperty *prope
 
     \table 100%
     \row
-    \o
+    \li
     \snippet doc/src/snippets/code/tools_shared_qtpropertybrowser_qtpropertybrowser.cpp 2
-    \o  \image qtpropertybrowser-duplicate.png
+    \li  \image qtpropertybrowser-duplicate.png
     \endtable
 
     The addProperty() function returns a QtBrowserItem that uniquely
@@ -1556,8 +1545,8 @@ void QtAbstractPropertyBrowserPrivate::slotPropertyDataChanged(QtProperty *prope
     implementations:
 
     \list
-        \o QtGroupBoxPropertyBrowser
-        \o QtTreePropertyBrowser
+        \li QtGroupBoxPropertyBrowser
+        \li QtTreePropertyBrowser
     \endlist
 
     \sa QtAbstractPropertyManager, QtAbstractEditorFactoryBase
@@ -1793,14 +1782,12 @@ QtBrowserItem *QtAbstractPropertyBrowser::insertProperty(QtProperty *property,
     QList<QtProperty *> pendingList = properties();
     int pos = 0;
     int newPos = 0;
-    QtProperty *properAfterProperty = 0;
     while (pos < pendingList.count()) {
         QtProperty *prop = pendingList.at(pos);
         if (prop == property)
             return 0;
         if (prop == afterProperty) {
             newPos = pos + 1;
-            properAfterProperty = afterProperty;
         }
         pos++;
     }

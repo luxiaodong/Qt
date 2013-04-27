@@ -8,6 +8,7 @@
 #include <QTextStream>
 #include <QMessageBox>
 #include <QFileDialog>
+#include <QMimeData>
 
 QRenameDialog::QRenameDialog(QWidget *parent) :
     QDialog(parent),
