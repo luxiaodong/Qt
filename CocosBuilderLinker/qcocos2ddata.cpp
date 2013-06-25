@@ -10,6 +10,11 @@ void QCocos2dCCNode::print()
     qDebug()<<"CCNode";
 }
 
+void QCocos2dCCSpriteBatchNode::print()
+{
+    qDebug()<<"CCSpriteBatchNode";
+}
+
 void QCocos2dCCLayer::print()
 {
     qDebug()<<"CCLayer";
@@ -38,4 +43,9 @@ void QCocos2dCCSprite::print()
 void QCocos2dCCLabelTTF::print()
 {
     qDebug()<<"CCLabelTTF";
+}
+
+void QCocos2dCCLabelBMFont::print()
+{
+    qDebug()<<"CCLabelBMFont";
 }

@@ -57,7 +57,7 @@ QCocos2dCCNode* QParseCCBFile::parseCocos2dClass(int startLineIndex, int endLine
     int index = this->indexOf("<key>baseClass</key>", startLineIndex);
     QString baseClass = m_lines.at(index + 1);
     QCocos2dCCNode* node = this->createCocos2dClass(this->dataOfLine(baseClass));
-    //qDebug()<<index<<baseClass;
+    qDebug()<<index<<baseClass;
     Q_ASSERT(node != 0);
 
     index = this->indexOf("<key>children</key>", index);
@@ -323,7 +323,7 @@ void QParseCCBFile::parseCocos2dProperties(QCocos2dCCNode* node, int startLineIn
         QCocos2dCCLabelTTF* temp = (QCocos2dCCLabelTTF*)(node);
         temp->m_vertAlignment = alignment;
     }
-    else if(name == "string")
+    else if(name == "string") //可能是其他的情况
     {
         QCocos2dPropertiesLabelText text;
         text.m_text = this->dataOfLine( m_lines.at(index + 5) );
@@ -421,6 +421,10 @@ QCocos2dCCNode* QParseCCBFile::createCocos2dClass(QString key)
     else if(key == "CCNode")
     {
         node = new QCocos2dCCNode();
+    }
+    else if(key == "CCLabelBMFont")
+    {
+        node = new QCocos2dCCLabelBMFont();
     }
 
     return node;

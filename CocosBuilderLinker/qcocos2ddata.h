@@ -164,6 +164,12 @@ public:
     QCocos2dPropertiesIgnoreAnchorPointForPosition m_ignoreAnchorPoint;
 };
 
+class QCocos2dCCSpriteBatchNode : public QCocos2dCCNode
+{
+public:
+    virtual void print();
+};
+
 class QCocos2dCCLayer : public QCocos2dCCNode
 {
 public:
@@ -219,6 +225,15 @@ public:
     QCocos2dPropertiesLabelAlignment m_vertAlignment;
     QCocos2dPropertiesLabelDimensions m_dimensions;
     QCocos2dPropertiesLabelText m_text;
+};
+
+class QCocos2dCCLabelBMFont : public QCocos2dCCSpriteBatchNode
+{
+public:
+    virtual void print();
+public:
+    QCocos2dPropertiesLabelAlignment m_horzAlignment;
+    int m_maxWidth;
 };
 
 #endif // QCOCOS2DDATA_H

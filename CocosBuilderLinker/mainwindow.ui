@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>439</width>
-    <height>307</height>
+    <width>294</width>
+    <height>235</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,7 +19,17 @@
   <property name="dockNestingEnabled">
    <bool>true</bool>
   </property>
-  <widget class="QWidget" name="centralWidget"/>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QPushButton" name="test">
+      <property name="text">
+       <string>test</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -34,8 +44,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>439</width>
-     <height>25</height>
+     <width>294</width>
+     <height>22</height>
     </rect>
    </property>
   </widget>
