@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "qcatchbindialog.h"
 #include "qpuzzledragondialog.h"
+#include "qbincomparedialog.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -10,7 +11,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     connect(ui->catchBin, SIGNAL(clicked()), this, SLOT(clickCatchBin()));
-    connect(ui->puzzleDragon, SIGNAL(clicked()), this, SLOT(clickPuzzleDragon()));
+    connect(ui->puzzleDragon, SIGNAL(clicked()),this,SLOT(clickPuzzleDragon()));
+    connect(ui->compare, SIGNAL(clicked()), this, SLOT(clickCompareBin()));
 }
 
 MainWindow::~MainWindow()
@@ -29,6 +31,14 @@ void MainWindow::clickCatchBin()
 void MainWindow::clickPuzzleDragon()
 {
     QPuzzleDragonDialog dialog(this);
+    this->hide();
+    dialog.exec();
+    this->show();
+}
+
+void MainWindow::clickCompareBin()
+{
+    QBinCompareDialog dialog(this);
     this->hide();
     dialog.exec();
     this->show();
