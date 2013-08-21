@@ -1,8 +1,7 @@
-*.user
-*.o
-*.a
-*.moc
 *~
-build-puzzleDragon-Desktop_Qt_5_0_2_GCC_32bit-Debug/*
-build-QCrackTools-Desktop_Qt_5_0_2_GCC_32bit-Debug/*
+*.moc
+*.user
+*.[oa]
+*-Debug/
+*-Release/
 
