@@ -234,6 +234,7 @@ public:
 public:
     QCocos2dPropertiesLabelAlignment m_horzAlignment;
     int m_maxWidth;
+    QCocos2dPropertiesLabelText m_text;
 };
 
 #endif // QCOCOS2DDATA_H

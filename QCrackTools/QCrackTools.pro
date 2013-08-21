@@ -16,13 +16,16 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     qcatchbindialog.cpp \
     qcatchbin.cpp \
-    qpuzzledragondialog.cpp
+    qpuzzledragondialog.cpp \
+    qbincomparedialog.cpp
 
 HEADERS  += mainwindow.h \
     qcatchbindialog.h \
     qcatchbin.h \
-    qpuzzledragondialog.h
+    qpuzzledragondialog.h \
+    qbincomparedialog.h
 
 FORMS    += mainwindow.ui \
     qcatchbindialog.ui \
-    qpuzzledragondialog.ui
+    qpuzzledragondialog.ui \
+    qbincomparedialog.ui

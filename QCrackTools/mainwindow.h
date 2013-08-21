@@ -18,7 +18,7 @@ public:
 public slots:
     void clickCatchBin();
     void clickPuzzleDragon();
-    //void clickSplitBin();
+    void clickCompareBin();
 private:
     Ui::MainWindow *ui;
 };
