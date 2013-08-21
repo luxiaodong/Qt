@@ -11,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->catchBin, SIGNAL(clicked()), this, SLOT(clickCatchBin()));
     connect(ui->puzzleDragon, SIGNAL(clicked()), this, SLOT(clickPuzzleDragon()));
+    //connect(ui->splitBin, SIGNAL(clicked()), this, SLOT(clickSplitBin()));
 }
 
 MainWindow::~MainWindow()

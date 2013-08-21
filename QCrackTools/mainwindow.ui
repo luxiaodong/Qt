@@ -15,14 +15,14 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
+    <item row="1" column="0">
      <widget class="QPushButton" name="catchBin">
       <property name="text">
        <string>catch bin</string>
       </property>
      </widget>
     </item>
-    <item row="1" column="0">
+    <item row="2" column="0">
      <widget class="QPushButton" name="puzzleDragon">
       <property name="text">
        <string>puzzleDragon</string>
@@ -37,7 +37,7 @@
      <x>0</x>
      <y>0</y>
      <width>385</width>
-     <height>25</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
