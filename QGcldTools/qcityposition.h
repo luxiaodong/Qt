@@ -3,6 +3,7 @@
 
 #include <QString>
 
+//将程序里的 city.lua 转成 txt文件给 matlab用
 class QCityPosition
 {
 public:

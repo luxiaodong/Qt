@@ -3,6 +3,7 @@
 
 #include <QString>
 
+//将时间分割点信息转成lua
 class QPolyTime
 {
 public:

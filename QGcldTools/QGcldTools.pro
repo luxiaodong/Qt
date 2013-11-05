@@ -19,7 +19,8 @@ SOURCES += main.cpp\
     qcityroadmap.cpp \
     qcityposition.cpp \
     qcubepoly.cpp \
-    qpolytime.cpp
+    qpolytime.cpp \
+    qcollectxiaoqiandialogure.cpp
 
 HEADERS  += mainwindow.h \
     qconvertdialogure.h \
@@ -27,7 +28,8 @@ HEADERS  += mainwindow.h \
     qcityroadmap.h \
     qcityposition.h \
     qcubepoly.h \
-    qpolytime.h
+    qpolytime.h \
+    qcollectxiaoqiandialogure.h
 
 FORMS    += mainwindow.ui
 

@@ -5,6 +5,7 @@
 #include <QStringList>
 #include <QList>
 
+//转小倩的文本,从xml到lua
 class QSingleSpeak
 {
 public:

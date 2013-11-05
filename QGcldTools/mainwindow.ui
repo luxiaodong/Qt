@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>420</width>
+    <height>361</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,24 +15,10 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
-     <widget class="QPushButton" name="convertDialogue">
+    <item row="5" column="0">
+     <widget class="QPushButton" name="tracePoints">
       <property name="text">
-       <string>convertDialogue</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="0">
-     <widget class="QPushButton" name="cityRoadMap">
-      <property name="text">
-       <string>cityRoadMap</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <widget class="QPushButton" name="bezierPoly">
-      <property name="text">
-       <string>bezierPoly</string>
+       <string>tracePoints</string>
       </property>
      </widget>
     </item>
@@ -50,10 +36,31 @@
       </property>
      </widget>
     </item>
-    <item row="5" column="0">
-     <widget class="QPushButton" name="tracePoints">
+    <item row="2" column="0">
+     <widget class="QPushButton" name="cityRoadMap">
       <property name="text">
-       <string>tracePoints</string>
+       <string>cityRoadMap</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QPushButton" name="bezierPoly">
+      <property name="text">
+       <string>bezierPoly</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QPushButton" name="convertDialogue">
+      <property name="text">
+       <string>convertDialogue</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="0">
+     <widget class="QPushButton" name="xiaoqianCollect">
+      <property name="text">
+       <string>xiaoqianCollect</string>
       </property>
      </widget>
     </item>
@@ -64,7 +71,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>400</width>
+     <width>420</width>
      <height>22</height>
     </rect>
    </property>

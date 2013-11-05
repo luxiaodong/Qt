@@ -22,6 +22,7 @@ public slots:
     void clickCityPosition();
     void clickCubePoly();
     void clickTracePoint();
+    void clickXiaoqianCollect();
     
 private:
     Ui::MainWindow *ui;

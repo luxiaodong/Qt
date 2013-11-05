@@ -7,6 +7,7 @@
 #include "qcityposition.h"
 #include "qcubepoly.h"
 #include "qpolytime.h"
+#include "qcollectxiaoqiandialogure.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -19,6 +20,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->cityPosition, SIGNAL(clicked()), this, SLOT(clickCityPosition()));
     connect(ui->cubePoly, SIGNAL(clicked()), this, SLOT(clickCubePoly()));
     connect(ui->tracePoints, SIGNAL(clicked()), this ,SLOT(clickTracePoint()));
+    connect(ui->xiaoqianCollect, SIGNAL(clicked()), this, SLOT(clickXiaoqianCollect()));
 }
 
 MainWindow::~MainWindow()
@@ -70,6 +72,13 @@ void MainWindow::clickTracePoint()
     QString filePath = QString("/Users/ruizhan/Dropbox/work/timeTable.txt");
     QPolyTime poly;
     poly.parse(filePath);
+}
+
+void MainWindow::clickXiaoqianCollect()
+{
+    QString filePath = QString("/Users/ruizhan/Dropbox/work/constant2.lua");
+    QCollectXiaoqianDialogure collect;
+    collect.parse(filePath);
 }
 
 

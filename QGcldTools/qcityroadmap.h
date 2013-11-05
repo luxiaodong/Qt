@@ -4,7 +4,7 @@
 #include <QString>
 #include <QStringList>
 
-
+//将matlab生成的路径信息 转成 lua格式
 class QCityRoadMap
 {
 public:
