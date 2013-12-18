@@ -90,3 +90,88 @@ void QPolyTime::parse(QString& filePath)
     file2.close();
     qDebug()<<"ok";
 }
+
+QString QPolyTime::convert2(QString&line1)
+{
+    QStringList list1 = line1.split("\t");
+    QString city1 = list1.at(0);
+    QString city2 = list1.at(1);
+
+    QString str;
+    str += QString("function jubenTracePoints.elapse_%1_%2()\n").arg(city1, city2);
+    str += QString("    local data = {}\n");
+    str += QString("    data.count = %1\n").arg( list1.size() - 2 );
+    str += QString("    data.time = {}\n");
+
+    for(int i = 2; i < list1.size(); ++i)
+    {
+        str += QString("    data.time[%1] = %2\n").arg(i - 1).arg( list1.at(i) );
+    }
+
+    str += QString("    return data\n");
+    str += QString("end\n");
+    return str;
+}
+
+void QPolyTime::parse2(QString& filePath)
+{
+    if(filePath.isEmpty() == true)
+    {
+        return ;
+    }
+
+    QFile file(filePath);
+
+    if(file.open(QIODevice::ReadOnly) == false)
+    {
+        return ;
+    }
+
+    QTextStream stream(&file);
+    stream.setCodec("UTF-8");
+    QStringList list;
+    while(stream.atEnd() == false)
+    {
+        QString line1 = stream.readLine().trimmed();
+        list.append(convert2(line1));
+        //qDebug()<<convert(line);
+    }
+
+    file.close();
+
+    QString newfilePath = filePath;
+    newfilePath.replace("timeTable", "tracePoints");
+    newfilePath.replace(".txt", ".lua");
+    QFile file2(newfilePath);
+
+    if(file2.open(QIODevice::WriteOnly) == false)
+    {
+        qDebug()<<"open failed";
+        return ;
+    }
+
+    QString str;
+    str += QString("function jubenTracePoints.elapse(cityID1, cityID2)\n");
+    str += QString("    local funName = \"elapse_\" .. tostring(cityID1) .. \"_\" .. tostring(cityID2)\n ");
+    str += QString("    if cityID1 > cityID2 then\n");
+    str += QString("        funName = \"elapse_\" .. tostring(cityID2) .. \"_\" .. tostring(cityID1)\n ");
+    str += QString("    end\n");
+    str += QString("    if jubenTracePoints[funName] == nil then\n");
+    str += QString("        return nil\n");
+    str += QString("    end\n");
+    str += QString("    return jubenTracePoints[funName]();\n");
+    str += QString("end\n\n");
+
+    QTextStream stream2(&file2);
+    stream2.setCodec("UTF-8");
+    stream2<<QString("local jubenTracePoints = {}\n");
+    foreach(QString single, list)
+    {
+        stream2<<single<<"\n";
+    }
+    stream2<<str<<"\n";
+    stream2<<QString("return jubenTracePoints");
+    file2.close();
+    qDebug()<<"ok";
+}
+

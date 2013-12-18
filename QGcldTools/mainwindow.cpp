@@ -62,16 +62,74 @@ void MainWindow::clickCityPosition()
 
 void MainWindow::clickCubePoly()
 {
-    QString filePath = QString("/Users/ruizhan/Dropbox/work/polyTable.txt");
-    QCubePoly poly;
-    poly.parse(filePath);
+//    QString filePath = QString("/Users/ruizhan/Dropbox/work/polyTable.txt");
+//    QCubePoly poly;
+//    poly.parse(filePath);
+
+    QStringList list;
+    list.append("/Users/ruizhan/Documents/MATLAB/gcld/juben/polyTable_1.txt");
+    list.append("/Users/ruizhan/Documents/MATLAB/gcld/juben/polyTable_2.txt");
+    list.append("/Users/ruizhan/Documents/MATLAB/gcld/juben/polyTable_3.txt");
+    list.append("/Users/ruizhan/Documents/MATLAB/gcld/juben/polyTable_4.txt");
+    list.append("/Users/ruizhan/Documents/MATLAB/gcld/juben/polyTable_5.txt");
+    list.append("/Users/ruizhan/Documents/MATLAB/gcld/juben/polyTable_6.txt");
+    list.append("/Users/ruizhan/Documents/MATLAB/gcld/juben/polyTable_7.txt");
+    list.append("/Users/ruizhan/Documents/MATLAB/gcld/juben/polyTable_8.txt");
+    list.append("/Users/ruizhan/Documents/MATLAB/gcld/juben/polyTable_9.txt");
+    list.append("/Users/ruizhan/Documents/MATLAB/gcld/juben/polyTable_10.txt");
+    list.append("/Users/ruizhan/Documents/MATLAB/gcld/juben/polyTable_11.txt");
+    list.append("/Users/ruizhan/Documents/MATLAB/gcld/juben/polyTable_10001.txt");
+    list.append("/Users/ruizhan/Documents/MATLAB/gcld/juben/polyTable_10002.txt");
+    list.append("/Users/ruizhan/Documents/MATLAB/gcld/juben/polyTable_10003.txt");
+    list.append("/Users/ruizhan/Documents/MATLAB/gcld/juben/polyTable_10004.txt");
+    list.append("/Users/ruizhan/Documents/MATLAB/gcld/juben/polyTable_10005.txt");
+    list.append("/Users/ruizhan/Documents/MATLAB/gcld/juben/polyTable_10006.txt");
+    list.append("/Users/ruizhan/Documents/MATLAB/gcld/juben/polyTable_10007.txt");
+    list.append("/Users/ruizhan/Documents/MATLAB/gcld/juben/polyTable_10008.txt");
+    list.append("/Users/ruizhan/Documents/MATLAB/gcld/juben/polyTable_10009.txt");
+    list.append("/Users/ruizhan/Documents/MATLAB/gcld/juben/polyTable_10010.txt");
+
+    foreach(QString single, list)
+    {
+        QCubePoly poly;
+        poly.parse2(single);
+    }
 }
 
 void MainWindow::clickTracePoint()
 {
-    QString filePath = QString("/Users/ruizhan/Dropbox/work/timeTable.txt");
-    QPolyTime poly;
-    poly.parse(filePath);
+//    QString filePath = QString("/Users/ruizhan/Dropbox/work/timeTable.txt");
+//    QPolyTime poly;
+//    poly.parse(filePath);
+
+    QStringList list;
+    list.append("/Users/ruizhan/Documents/MATLAB/gcld/juben/timeTable_1.txt");
+    list.append("/Users/ruizhan/Documents/MATLAB/gcld/juben/timeTable_2.txt");
+    list.append("/Users/ruizhan/Documents/MATLAB/gcld/juben/timeTable_3.txt");
+    list.append("/Users/ruizhan/Documents/MATLAB/gcld/juben/timeTable_4.txt");
+    list.append("/Users/ruizhan/Documents/MATLAB/gcld/juben/timeTable_5.txt");
+    list.append("/Users/ruizhan/Documents/MATLAB/gcld/juben/timeTable_6.txt");
+    list.append("/Users/ruizhan/Documents/MATLAB/gcld/juben/timeTable_7.txt");
+    list.append("/Users/ruizhan/Documents/MATLAB/gcld/juben/timeTable_8.txt");
+    list.append("/Users/ruizhan/Documents/MATLAB/gcld/juben/timeTable_9.txt");
+    list.append("/Users/ruizhan/Documents/MATLAB/gcld/juben/timeTable_10.txt");
+    list.append("/Users/ruizhan/Documents/MATLAB/gcld/juben/timeTable_11.txt");
+    list.append("/Users/ruizhan/Documents/MATLAB/gcld/juben/timeTable_10001.txt");
+    list.append("/Users/ruizhan/Documents/MATLAB/gcld/juben/timeTable_10002.txt");
+    list.append("/Users/ruizhan/Documents/MATLAB/gcld/juben/timeTable_10003.txt");
+    list.append("/Users/ruizhan/Documents/MATLAB/gcld/juben/timeTable_10004.txt");
+    list.append("/Users/ruizhan/Documents/MATLAB/gcld/juben/timeTable_10005.txt");
+    list.append("/Users/ruizhan/Documents/MATLAB/gcld/juben/timeTable_10006.txt");
+    list.append("/Users/ruizhan/Documents/MATLAB/gcld/juben/timeTable_10007.txt");
+    list.append("/Users/ruizhan/Documents/MATLAB/gcld/juben/timeTable_10008.txt");
+    list.append("/Users/ruizhan/Documents/MATLAB/gcld/juben/timeTable_10009.txt");
+    list.append("/Users/ruizhan/Documents/MATLAB/gcld/juben/timeTable_10010.txt");
+
+    foreach(QString single, list)
+    {
+        QPolyTime poly;
+        poly.parse2(single);
+    }
 }
 
 void MainWindow::clickXiaoqianCollect()

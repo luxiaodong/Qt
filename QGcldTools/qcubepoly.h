@@ -8,9 +8,10 @@ class QCubePoly
 {
 public:
     QCubePoly();
-
     QString convert(QString&,QString&);
-    void parse(QString&);
+    void parse(QString&);   //for world.
+    QString convert2(QString&,QString&);
+    void parse2(QString&);  //for juben.
 };
 
 #endif // QCUBEPOLY_H

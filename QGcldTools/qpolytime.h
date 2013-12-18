@@ -11,6 +11,9 @@ public:
 
     QString convert(QString&);
     void parse(QString&);
+
+    QString convert2(QString&);
+    void parse2(QString&);
 };
 
 #endif // QPOLYTIME_H
