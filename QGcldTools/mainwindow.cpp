@@ -21,6 +21,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->cubePoly, SIGNAL(clicked()), this, SLOT(clickCubePoly()));
     connect(ui->tracePoints, SIGNAL(clicked()), this ,SLOT(clickTracePoint()));
     connect(ui->xiaoqianCollect, SIGNAL(clicked()), this, SLOT(clickXiaoqianCollect()));
+    connect(ui->build_res, SIGNAL(clicked()), this, SLOT(clickBuildResource()));
+    connect(ui->buildAndroid, SIGNAL(clicked()), this, SLOT(clickBuildAndroid()));
 }
 
 MainWindow::~MainWindow()
@@ -118,5 +120,43 @@ void MainWindow::clickXiaoqianCollect()
     QCollectXiaoqianDialogure collect;
     collect.parse(filePath);
 }
+
+void MainWindow::clickBuildResource()
+{
+    QSettings settings("reign", "QGcldTools");
+    QString oldFilePath = settings.value("build_resources_dir","").toString();
+    QString filePath = QFileDialog::getExistingDirectory(this, QString("Open Directory"), oldFilePath, QFileDialog::ShowDirsOnly);
+    if( filePath.isEmpty() == true)
+    {
+        return ;
+    }
+
+    if( QFile::exists(filePath) == true)
+    {
+        QProcess::execute(QString("./build_resources.sh") , QStringList()<<filePath);
+        settings.setValue("build_resources_dir", filePath);
+        QMessageBox::information(this,"build_Resources","Love is Over");
+    }
+}
+
+void MainWindow::clickBuildAndroid()
+{
+    //资源assert没进来
+    QSettings settings("reign", "QGcldTools");
+    QString oldFilePath = settings.value("build_android_dir","").toString();
+    QString filePath = QFileDialog::getExistingDirectory(this, QString("Open Directory"), oldFilePath, QFileDialog::ShowDirsOnly);
+    if( filePath.isEmpty() == true)
+    {
+        return ;
+    }
+
+    if( QFile::exists(filePath) == true)
+    {
+        QProcess::execute(QString("./build_android.sh") , QStringList()<<filePath);
+        settings.setValue("build_android_dir", filePath);
+        QMessageBox::information(this,"build_Resources","Love is Over");
+    }
+}
+
 
 

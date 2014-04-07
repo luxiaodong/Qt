@@ -3,6 +3,12 @@
 
 #include <QMainWindow>
 #include <QStringList>
+#include <QProcess>
+#include <QFileDevice>
+#include <QFile>
+#include <QFileDialog>
+#include <QMessageBox>
+#include <QSettings>
 
 namespace Ui {
 class MainWindow;
@@ -24,6 +30,8 @@ public slots:
     void clickCubePoly();
     void clickTracePoint();
     void clickXiaoqianCollect();
+    void clickBuildResource();
+    void clickBuildAndroid();
     
 private:
     Ui::MainWindow *ui;
