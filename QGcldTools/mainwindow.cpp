@@ -69,23 +69,30 @@ void MainWindow::clickCubePoly()
 //    QCubePoly poly;
 //    poly.parse(filePath);
 
-    QList<int> list;
-    for(int i=0; i<11; ++i)
-    {
-        list.append(i+1);
-    }
 
-    for(int i=10000; i < 10; ++i)
-    {
-        list.append(i+1);
-    }
 
-    foreach(int index, list)
-    {
-        QString filePath = QString("/home/luxiaodong/Project/Git/Matlab/gcld/data/juben/polyTable_%1.txt").arg(index);
-        QCubePoly poly;
-        poly.parse2(filePath);
-    }
+
+//    QList<int> list;
+//    for(int i=0; i<11; ++i)
+//    {
+//        list.append(i+1);
+//    }
+
+//    for(int i=10000; i < 10; ++i)
+//    {
+//        list.append(i+1);
+//    }
+
+//    foreach(int index, list)
+//    {
+//        QString filePath = QString("/home/luxiaodong/Project/Git/Matlab/gcld/data/juben/polyTable_%1.txt").arg(index);
+//        QCubePoly poly;
+//        poly.parse2(filePath);
+//    }
+
+    QString filePath = QString("/Users/luxiaodong/Project/Git/Matlab/gcld/data/kfworld/polyTable_1.txt");
+    QCubePoly poly;
+    poly.parse2(filePath);
 }
 
 void MainWindow::clickTracePoint()
@@ -95,23 +102,29 @@ void MainWindow::clickTracePoint()
 //    QPolyTime poly;
 //    poly.parse(filePath);
 
-    QList<int> list;
-    for(int i=0; i<11; ++i)
-    {
-        list.append(i+1);
-    }
 
-    for(int i=10000; i < 10; ++i)
-    {
-        list.append(i+1);
-    }
+//    QList<int> list;
+//    for(int i=0; i<11; ++i)
+//    {
+//        list.append(i+1);
+//    }
 
-    foreach(int index, list)
-    {
-        QString filePath = QString("/home/luxiaodong/Project/Git/Matlab/gcld/data/juben/timeTable_%1.txt").arg(index);
-        QPolyTime poly;
-        poly.parse2(filePath);
-    }
+//    for(int i=10000; i < 10; ++i)
+//    {
+//        list.append(i+1);
+//    }
+
+//    foreach(int index, list)
+//    {
+//        QString filePath = QString("/home/luxiaodong/Project/Git/Matlab/gcld/data/juben/timeTable_%1.txt").arg(index);
+//        QPolyTime poly;
+//        poly.parse2(filePath);
+//    }
+
+
+    QString filePath = QString("/Users/luxiaodong/Project/Git/Matlab/gcld/data/kfworld/timeTable_1.txt");
+    QPolyTime poly;
+    poly.parse2(filePath);
 }
 
 void MainWindow::clickXiaoqianCollect()
