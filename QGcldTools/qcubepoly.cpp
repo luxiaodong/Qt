@@ -7,6 +7,8 @@
 
 QCubePoly::QCubePoly()
 {
+    //m_name = "jubenCubePoly";
+    m_name = "tanbaoCubePoly";
 }
 
 QString QCubePoly::convert(QString&line1, QString& line2)
@@ -116,7 +118,7 @@ QString QCubePoly::convert2(QString&line1, QString& line2)
     QString city2 = list2.first().remove(".00");
 
     QString str;
-    str += QString("function jubenCubePoly.curve_%1_%2()\n").arg(city1, city2);
+    str += QString("function %1.curve_%2_%3()\n").arg(m_name, city1, city2);
     str += QString("    local data = {}\n");
     str += QString("    data.rank = %1\n").arg( 3 );
     str += QString("    data.x = {}\n");
@@ -160,7 +162,7 @@ void QCubePoly::parse2(QString& filePath)
     file.close();
 
     QString newfilePath = filePath;
-    newfilePath.replace("polyTable", "jubenCubePoly");
+    newfilePath.replace("polyTable", m_name);
     newfilePath.replace(".txt", ".lua");
     QFile file2(newfilePath);
 
@@ -171,18 +173,18 @@ void QCubePoly::parse2(QString& filePath)
     }
 
     QString str;
-    str += QString("function jubenCubePoly.curve(cityID1, cityID2)\n");
+    str += QString("function %1.curve(cityID1, cityID2)\n").arg(m_name);
     str += QString("    local funName = \"curve_\" .. tostring(cityID1) .. \"_\" .. tostring(cityID2)\n ");
     str += QString("    if cityID1 > cityID2 then\n");
     str += QString("        funName = \"curve_\" .. tostring(cityID2) .. \"_\" .. tostring(cityID1)\n ");
     str += QString("    end\n");
-    str += QString("    if jubenCubePoly[funName] == nil then\n");
+    str += QString("    if %1[funName] == nil then\n").arg(m_name);
     str += QString("        return nil\n");
     str += QString("    end\n");
-    str += QString("    return jubenCubePoly[funName]();\n");
+    str += QString("    return %1[funName]();\n").arg(m_name);
     str += QString("end\n\n");
 
-    str += QString("function jubenCubePoly.position(data, cityID1, cityID2, percent)\n");
+    str += QString("function %1.position(data, cityID1, cityID2, percent)\n").arg(m_name);
     str += QString("    if cityID1 > cityID2 then\n");
     str += QString("        percent = 1.0 - percent;\n");
     str += QString("    end\n\n");
@@ -197,13 +199,13 @@ void QCubePoly::parse2(QString& filePath)
 
     QTextStream stream2(&file2);
     stream2.setCodec("UTF-8");
-    stream2<<QString("local jubenCubePoly = {}\n");
+    stream2<<QString("local %1 = {}\n").arg(m_name);
     foreach(QString single, list)
     {
         stream2<<single<<"\n";
     }
     stream2<<str<<"\n";
-    stream2<<QString("return jubenCubePoly\n");
+    stream2<<QString("return %1\n").arg(m_name);
     file2.close();
     qDebug()<<"ok";
 }

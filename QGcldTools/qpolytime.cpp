@@ -7,6 +7,8 @@
 
 QPolyTime::QPolyTime()
 {
+    //m_name = "jubenTracePoints";
+    m_name = "tanbaoPoints";
 }
 
 QString QPolyTime::convert(QString&line1)
@@ -98,7 +100,7 @@ QString QPolyTime::convert2(QString&line1)
     QString city2 = list1.at(1);
 
     QString str;
-    str += QString("function jubenTracePoints.elapse_%1_%2()\n").arg(city1, city2);
+    str += QString("function %1.elapse_%2_%3()\n").arg(m_name,city1, city2);
     str += QString("    local data = {}\n");
     str += QString("    data.count = %1\n").arg( list1.size() - 2 );
     str += QString("    data.time = {}\n");
@@ -151,26 +153,26 @@ void QPolyTime::parse2(QString& filePath)
     }
 
     QString str;
-    str += QString("function jubenTracePoints.elapse(cityID1, cityID2)\n");
+    str += QString("function %1.elapse(cityID1, cityID2)\n").arg(m_name);
     str += QString("    local funName = \"elapse_\" .. tostring(cityID1) .. \"_\" .. tostring(cityID2)\n ");
     str += QString("    if cityID1 > cityID2 then\n");
     str += QString("        funName = \"elapse_\" .. tostring(cityID2) .. \"_\" .. tostring(cityID1)\n ");
     str += QString("    end\n");
-    str += QString("    if jubenTracePoints[funName] == nil then\n");
+    str += QString("    if %1[funName] == nil then\n").arg(m_name);
     str += QString("        return nil\n");
     str += QString("    end\n");
-    str += QString("    return jubenTracePoints[funName]();\n");
+    str += QString("    return %1[funName]();\n").arg(m_name);
     str += QString("end\n\n");
 
     QTextStream stream2(&file2);
     stream2.setCodec("UTF-8");
-    stream2<<QString("local jubenTracePoints = {}\n");
+    stream2<<QString("local %1 = {}\n").arg(m_name);
     foreach(QString single, list)
     {
         stream2<<single<<"\n";
     }
     stream2<<str<<"\n";
-    stream2<<QString("return jubenTracePoints");
+    stream2<<QString("return %1").arg(m_name);
     file2.close();
     qDebug()<<"ok";
 }

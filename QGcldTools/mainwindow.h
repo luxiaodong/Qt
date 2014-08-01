@@ -32,6 +32,7 @@ public slots:
     void clickXiaoqianCollect();
     void clickBuildResource();
     void clickBuildAndroid();
+    void clickResourceDiff();
     
 private:
     Ui::MainWindow *ui;

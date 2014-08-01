@@ -12,6 +12,9 @@ public:
     void parse(QString&);   //for world.
     QString convert2(QString&,QString&);
     void parse2(QString&);  //for juben.
+
+private:
+    QString m_name;
 };
 
 #endif // QCUBEPOLY_H

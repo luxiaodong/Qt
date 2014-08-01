@@ -20,7 +20,9 @@ SOURCES += main.cpp\
     qcityposition.cpp \
     qcubepoly.cpp \
     qpolytime.cpp \
-    qcollectxiaoqiandialogure.cpp
+    qcollectxiaoqiandialogure.cpp \
+    qbuildresourcedialog.cpp \
+    qresourcediffdialog.cpp
 
 HEADERS  += mainwindow.h \
     qconvertdialogure.h \
@@ -29,9 +31,13 @@ HEADERS  += mainwindow.h \
     qcityposition.h \
     qcubepoly.h \
     qpolytime.h \
-    qcollectxiaoqiandialogure.h
+    qcollectxiaoqiandialogure.h \
+    qbuildresourcedialog.h \
+    qresourcediffdialog.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    qbuildresourcedialog.ui \
+    qresourcediffdialog.ui
 
 OTHER_FILES += \
     test.qml

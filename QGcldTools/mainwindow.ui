@@ -15,59 +15,59 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="4" column="0">
-     <widget class="QPushButton" name="cubePoly">
-      <property name="text">
-       <string>cubePoly</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="0">
-     <widget class="QPushButton" name="xiaoqianCollect">
-      <property name="text">
-       <string>xiaoqianCollect</string>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="0">
-     <widget class="QPushButton" name="bezierPoly">
-      <property name="text">
-       <string>bezierPoly</string>
-      </property>
-     </widget>
-    </item>
-    <item row="8" column="0">
+    <item row="9" column="0">
      <widget class="QPushButton" name="cityPosition">
       <property name="text">
        <string>cityPosition</string>
       </property>
      </widget>
     </item>
-    <item row="11" column="0">
+    <item row="12" column="0">
      <widget class="QPushButton" name="convertDialogue">
       <property name="text">
        <string>convertDialogue</string>
       </property>
      </widget>
     </item>
-    <item row="3" column="0">
+    <item row="2" column="0">
+     <widget class="QPushButton" name="build_res">
+      <property name="text">
+       <string>build_Resources</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
      <widget class="QPushButton" name="tracePoints">
       <property name="text">
        <string>tracePoints</string>
       </property>
      </widget>
     </item>
-    <item row="5" column="0">
+    <item row="6" column="0">
      <widget class="QPushButton" name="cityRoadMap">
       <property name="text">
        <string>cityRoadMap</string>
       </property>
      </widget>
     </item>
-    <item row="1" column="0">
-     <widget class="QPushButton" name="build_res">
+    <item row="3" column="0">
+     <widget class="QPushButton" name="xiaoqianCollect">
       <property name="text">
-       <string>build_Resources</string>
+       <string>xiaoqianCollect</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="0">
+     <widget class="QPushButton" name="bezierPoly">
+      <property name="text">
+       <string>bezierPoly</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QPushButton" name="cubePoly">
+      <property name="text">
+       <string>cubePoly</string>
       </property>
      </widget>
     </item>
@@ -75,6 +75,13 @@
      <widget class="QPushButton" name="buildAndroid">
       <property name="text">
        <string>build_Android</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QPushButton" name="resourceDiff">
+      <property name="text">
+       <string>resources_diff</string>
       </property>
      </widget>
     </item>

@@ -8,6 +8,8 @@
 #include "qcubepoly.h"
 #include "qpolytime.h"
 #include "qcollectxiaoqiandialogure.h"
+#include "qbuildresourcedialog.h"
+#include "qresourcediffdialog.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -23,6 +25,9 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->xiaoqianCollect, SIGNAL(clicked()), this, SLOT(clickXiaoqianCollect()));
     connect(ui->build_res, SIGNAL(clicked()), this, SLOT(clickBuildResource()));
     connect(ui->buildAndroid, SIGNAL(clicked()), this, SLOT(clickBuildAndroid()));
+    connect(ui->resourceDiff, SIGNAL(clicked()), this, SLOT(clickResourceDiff()));
+
+    clickBuildResource();
 }
 
 MainWindow::~MainWindow()
@@ -90,9 +95,16 @@ void MainWindow::clickCubePoly()
 //        poly.parse2(filePath);
 //    }
 
-    QString filePath = QString("/Users/luxiaodong/Project/Git/Matlab/gcld/data/kfworld/polyTable_1.txt");
-    QCubePoly poly;
-    poly.parse2(filePath);
+//    QString filePath = QString("/Users/luxiaodong/Project/Git/Matlab/gcld/data/kfworld/polyTable_1.txt");
+//    QCubePoly poly;
+//    poly.parse2(filePath);
+
+    for(int i=0; i<3; ++i)
+    {
+        QString filePath = QString("/Users/luxiaodong/Project/Git/luxiaodong/Matlab/gcld/data/tanbao/polyTable_%1.txt").arg(i + 1);
+        QCubePoly poly;
+        poly.parse2(filePath);
+    }
 }
 
 void MainWindow::clickTracePoint()
@@ -122,9 +134,16 @@ void MainWindow::clickTracePoint()
 //    }
 
 
-    QString filePath = QString("/Users/luxiaodong/Project/Git/Matlab/gcld/data/kfworld/timeTable_1.txt");
-    QPolyTime poly;
-    poly.parse2(filePath);
+    for(int i=0; i<3; ++i)
+    {
+        QString filePath = QString("/Users/luxiaodong/Project/Git/luxiaodong/Matlab/gcld/data/tanbao/timeTable_%1.txt").arg(i + 1);
+        QPolyTime poly;
+        poly.parse2(filePath);
+    }
+
+//    QString filePath = QString("/Users/luxiaodong/Project/Git/Matlab/gcld/data/kfworld/timeTable_1.txt");
+//    QPolyTime poly;
+//    poly.parse2(filePath);
 }
 
 void MainWindow::clickXiaoqianCollect()
@@ -136,20 +155,27 @@ void MainWindow::clickXiaoqianCollect()
 
 void MainWindow::clickBuildResource()
 {
-    QSettings settings("reign", "QGcldTools");
-    QString oldFilePath = settings.value("build_resources_dir","").toString();
-    QString filePath = QFileDialog::getExistingDirectory(this, QString("Open Directory"), oldFilePath, QFileDialog::ShowDirsOnly);
-    if( filePath.isEmpty() == true)
-    {
-        return ;
-    }
+    this->setVisible(false);
+    QBuildResourceDialog dialog(this);
+    dialog.exec();
+    this->setVisible(true);
 
-    if( QFile::exists(filePath) == true)
-    {
-        QProcess::execute(QString("./build_resources.sh") , QStringList()<<filePath);
-        settings.setValue("build_resources_dir", filePath);
-        QMessageBox::information(this,"build_Resources","Love is Over");
-    }
+//    QSettings settings("reign", "QGcldTools");
+//    QString oldFilePath = settings.value("build_resources_dir","").toString();
+//    QString filePath = QFileDialog::getExistingDirectory(this, QString("Open Directory"), oldFilePath, QFileDialog::ShowDirsOnly);
+//    if( filePath.isEmpty() == true)
+//    {
+//        return ;
+//    }
+
+//    if( QFile::exists(filePath) == true)
+//    {
+//        QProcess::execute(QString("./build_resources.sh") , QStringList()<<filePath);
+//        settings.setValue("build_resources_dir", filePath);
+//        QMessageBox::information(this,"build_Resources","Love is Over");
+//    }
+
+
 }
 
 void MainWindow::clickBuildAndroid()
@@ -169,6 +195,14 @@ void MainWindow::clickBuildAndroid()
         settings.setValue("build_android_dir", filePath);
         QMessageBox::information(this,"build_Resources","Love is Over");
     }
+}
+
+void MainWindow::clickResourceDiff()
+{
+    this->setVisible(false);
+    QResourceDiffDialog dialog(this);
+    dialog.exec();
+    this->setVisible(true);
 }
 
 
