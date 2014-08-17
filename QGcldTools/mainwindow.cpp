@@ -95,16 +95,16 @@ void MainWindow::clickCubePoly()
 //        poly.parse2(filePath);
 //    }
 
-//    QString filePath = QString("/Users/luxiaodong/Project/Git/Matlab/gcld/data/kfworld/polyTable_1.txt");
-//    QCubePoly poly;
-//    poly.parse2(filePath);
+    QString filePath = QString("/Users/luxiaodong/Project/Git/luxiaodong/Matlab/gcld/data/kfworld/polyTable_2.txt");
+    QCubePoly poly;
+    poly.parse2(filePath);
 
-    for(int i=0; i<3; ++i)
-    {
-        QString filePath = QString("/Users/luxiaodong/Project/Git/luxiaodong/Matlab/gcld/data/tanbao/polyTable_%1.txt").arg(i + 1);
-        QCubePoly poly;
-        poly.parse2(filePath);
-    }
+//    for(int i=0; i<3; ++i)
+//    {
+//        QString filePath = QString("/Users/luxiaodong/Project/Git/luxiaodong/Matlab/gcld/data/tanbao/polyTable_%1.txt").arg(i + 1);
+//        QCubePoly poly;
+//        poly.parse2(filePath);
+//    }
 }
 
 void MainWindow::clickTracePoint()
@@ -134,16 +134,16 @@ void MainWindow::clickTracePoint()
 //    }
 
 
-    for(int i=0; i<3; ++i)
-    {
-        QString filePath = QString("/Users/luxiaodong/Project/Git/luxiaodong/Matlab/gcld/data/tanbao/timeTable_%1.txt").arg(i + 1);
-        QPolyTime poly;
-        poly.parse2(filePath);
-    }
+//    for(int i=0; i<3; ++i)
+//    {
+//        QString filePath = QString("/Users/luxiaodong/Project/Git/luxiaodong/Matlab/gcld/data/tanbao/timeTable_%1.txt").arg(i + 1);
+//        QPolyTime poly;
+//        poly.parse2(filePath);
+//    }
 
-//    QString filePath = QString("/Users/luxiaodong/Project/Git/Matlab/gcld/data/kfworld/timeTable_1.txt");
-//    QPolyTime poly;
-//    poly.parse2(filePath);
+    QString filePath = QString("/Users/luxiaodong/Project/Git/luxiaodong/Matlab/gcld/data/kfworld/timeTable_2.txt");
+    QPolyTime poly;
+    poly.parse2(filePath);
 }
 
 void MainWindow::clickXiaoqianCollect()

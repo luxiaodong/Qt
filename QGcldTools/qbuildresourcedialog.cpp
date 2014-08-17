@@ -114,7 +114,7 @@ void QBuildResourceDialog::click_start()
         QStringList text = stream.readAll().split("\n");
 
         QMessageBox msgBox;
-        msgBox.setText("version information.");
+        msgBox.setText("请注意,整包和动更包版本不一样");
         msgBox.setInformativeText(QString("%1\n%2").arg(text.at(1), text.at(2)));
         msgBox.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
         msgBox.setDefaultButton(QMessageBox::Cancel);

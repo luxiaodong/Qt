@@ -8,7 +8,8 @@
 QPolyTime::QPolyTime()
 {
     //m_name = "jubenTracePoints";
-    m_name = "tanbaoPoints";
+    //m_name = "tanbaoPoints";
+    m_name = "kfworldPoints";
 }
 
 QString QPolyTime::convert(QString&line1)
