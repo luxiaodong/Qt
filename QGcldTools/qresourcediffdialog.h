@@ -26,6 +26,7 @@ public slots:
 
     void clickBrowse1();
     void clickBrowse2();
+    void clickBrowse3();
 
 public:
     bool loadOneRes();
@@ -33,6 +34,7 @@ public:
     bool loadOneRes2();
     bool loadOtherRes2();
     bool compareTwoMap();
+    bool loadStandMap();
 
 private:
     Ui::QResourceDiffDialog *ui;
@@ -45,6 +47,9 @@ private:
     QMap<QString,QString> m_oneMap;
     QMap<QString,QString> m_otherMap;
     QMap<QString,QString> m_diffMap;
+
+    QString m_standDir;
+    QMap<QString,QString> m_standMap;
 };
 
 #endif // QRESOURCEDIFFDIALOG_H

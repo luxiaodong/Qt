@@ -14,15 +14,18 @@ QResourceDiffDialog::QResourceDiffDialog(QWidget *parent) :
 
     connect(ui->browse1, SIGNAL(clicked()), this, SLOT(clickBrowse1()));
     connect(ui->browse2, SIGNAL(clicked()), this, SLOT(clickBrowse2()));
+    connect(ui->browse3, SIGNAL(clicked()), this, SLOT(clickBrowse3()));
     connect(ui->start, SIGNAL(clicked()), this, SLOT(clickStart()));
     connect(ui->quit, SIGNAL(clicked()), this, SLOT(clickQuit()));
 
     QSettings settings("QResourceDiffDialog");
     m_oneDir = settings.value("oneDir",QString("")).toString();
     m_otherDir = settings.value("otherDir",QString("")).toString();
+    m_standDir = settings.value("standDir",QString("")).toString();
 
     ui->oneDir->setText( m_oneDir );
     ui->otherDir->setText( m_otherDir );
+    ui->standDir->setText( m_standDir );
 }
 
 QResourceDiffDialog::~QResourceDiffDialog()
@@ -56,6 +59,22 @@ void QResourceDiffDialog::clickBrowse2()
     ui->otherDir->setText( m_otherDir );
     QSettings settings("QResourceDiffDialog");
     settings.setValue("otherDir", m_otherDir);
+}
+
+void QResourceDiffDialog::clickBrowse3()
+{
+    QString path = QFileDialog::getOpenFileName(this, "open file", m_standDir);
+    if(path.isEmpty() == true)
+    {
+        return ;
+    }
+
+    m_standDir = path;
+    ui->standDir->setText( m_standDir );
+    QSettings settings("QResourceDiffDialog");
+    settings.setValue("standDir", m_standDir);
+
+    qDebug()<<this->loadStandMap();
 }
 
 void QResourceDiffDialog::clickStart()
@@ -116,7 +135,8 @@ void QResourceDiffDialog::clickStart()
         if(rtn > 0)
         {
             m_diffMap.insert(otherStr, "A");
-            ui->textBrowser->append(QString("%1 %2").arg("A    ", otherStr));
+            QString srcStr = m_standMap.value(otherStr, "");
+            ui->textBrowser->append(QString("%1 %2\t%3").arg("A    ", otherStr, srcStr));
             indexOther++;
             addNumber++;
         }
@@ -125,7 +145,8 @@ void QResourceDiffDialog::clickStart()
             m_diffMap.insert(oneStr, "D");
             indexOne++;
             delNumber++;
-            ui->textBrowser->append(QString("%1 %2").arg("D    ", oneStr));
+            QString srcStr = m_standMap.value(oneStr, "");
+            ui->textBrowser->append(QString("%1 %2\t%3").arg("D    ", oneStr, srcStr));
         }
         else
         {
@@ -137,7 +158,8 @@ void QResourceDiffDialog::clickStart()
             if(oneStrMd5 != otherStrMd5)
             {
                 m_diffMap.insert(oneStr, "M");
-                ui->textBrowser->append(QString("%1 %2").arg("M    ", oneStr));
+                QString srcStr = m_standMap.value(oneStr, "");
+                ui->textBrowser->append(QString("%1 %2\t%3").arg("M    ", oneStr, srcStr));
                 modNumber++;
             }
         }
@@ -240,6 +262,30 @@ bool QResourceDiffDialog::loadOtherRes()
     }
 
     m_otherList.sort();
+    return true;
+}
+
+bool QResourceDiffDialog::loadStandMap()
+{
+    m_standMap.clear();
+    QFile file(m_standDir);
+    if(file.open(QIODevice::ReadOnly) == false)
+    {
+        return false;
+    }
+
+    QTextStream stream(&file);
+    while(stream.atEnd() == false)
+    {
+        QString str = stream.readLine();
+        QStringList tempList = str.split(" ");
+        if (tempList.size() == 2)
+        {
+            m_standMap.insert(tempList.at(0), tempList.at(1) );
+        }
+    }
+
+    file.close();
     return true;
 }
 

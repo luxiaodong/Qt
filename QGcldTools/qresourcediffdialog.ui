@@ -59,6 +59,27 @@
       </layout>
      </item>
      <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <item>
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>映射表:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="standDir"/>
+       </item>
+       <item>
+        <widget class="QPushButton" name="browse3">
+         <property name="text">
+          <string>浏览</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
       <widget class="QTextBrowser" name="textBrowser"/>
      </item>
      <item>
