@@ -33,6 +33,8 @@ public slots:
     void clickBuildResource();
     void clickBuildAndroid();
     void clickResourceDiff();
+    void clickUtf8Convert();
+    void clickDecode();
     
 private:
     Ui::MainWindow *ui;

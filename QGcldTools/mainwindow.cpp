@@ -10,6 +10,7 @@
 #include "qcollectxiaoqiandialogure.h"
 #include "qbuildresourcedialog.h"
 #include "qresourcediffdialog.h"
+#include "qutf8convert.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -26,8 +27,10 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->build_res, SIGNAL(clicked()), this, SLOT(clickBuildResource()));
     connect(ui->buildAndroid, SIGNAL(clicked()), this, SLOT(clickBuildAndroid()));
     connect(ui->resourceDiff, SIGNAL(clicked()), this, SLOT(clickResourceDiff()));
+    connect(ui->utf8Bom, SIGNAL(clicked()), this, SLOT(clickUtf8Convert()));
+    connect(ui->decode, SIGNAL(clicked()),this,SLOT(clickDecode()));
 
-    clickBuildResource();
+    //clickBuildResource();
 }
 
 MainWindow::~MainWindow()
@@ -205,5 +208,37 @@ void MainWindow::clickResourceDiff()
     this->setVisible(true);
 }
 
+void MainWindow::clickUtf8Convert()
+{
+    //QString filePath = QFileDialog::getExistingDirectory(this, QString("Open Directory"), "", QFileDialog::ShowDirsOnly);
+    QString filePath = QFileDialog::getOpenFileName(this, QString("Open Directory"), "");
+    if( filePath.isEmpty() == true)
+    {
+        return ;
+    }
+
+    if( QFile::exists(filePath) == true)
+    {
+        QUtf8Convert convert;
+        //convert.convert(filePath);
+        convert.checkBOM(filePath);
+    }
+}
+
+void MainWindow::clickDecode()
+{
+    QString filePath = QFileDialog::getOpenFileName(this, QString("Open Directory"), "");
+    if( filePath.isEmpty() == true)
+    {
+        return ;
+    }
+
+    if( QFile::exists(filePath) == true)
+    {
+        QUtf8Convert convert;
+        //convert.convert(filePath);
+        convert.decode(filePath);
+    }
+}
 
 

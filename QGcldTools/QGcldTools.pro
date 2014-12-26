@@ -22,7 +22,8 @@ SOURCES += main.cpp\
     qpolytime.cpp \
     qcollectxiaoqiandialogure.cpp \
     qbuildresourcedialog.cpp \
-    qresourcediffdialog.cpp
+    qresourcediffdialog.cpp \
+    qutf8convert.cpp
 
 HEADERS  += mainwindow.h \
     qconvertdialogure.h \
@@ -33,7 +34,8 @@ HEADERS  += mainwindow.h \
     qpolytime.h \
     qcollectxiaoqiandialogure.h \
     qbuildresourcedialog.h \
-    qresourcediffdialog.h
+    qresourcediffdialog.h \
+    qutf8convert.h
 
 FORMS    += mainwindow.ui \
     qbuildresourcedialog.ui \
