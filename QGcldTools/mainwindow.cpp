@@ -12,6 +12,8 @@
 #include "qresourcediffdialog.h"
 #include "qutf8convert.h"
 
+#include <QDebug>
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -29,6 +31,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->resourceDiff, SIGNAL(clicked()), this, SLOT(clickResourceDiff()));
     connect(ui->utf8Bom, SIGNAL(clicked()), this, SLOT(clickUtf8Convert()));
     connect(ui->decode, SIGNAL(clicked()),this,SLOT(clickDecode()));
+    connect(ui->rc4, SIGNAL(clicked()), this, SLOT(clickRc4()));
 
     //clickBuildResource();
 }
@@ -241,4 +244,18 @@ void MainWindow::clickDecode()
     }
 }
 
+void MainWindow::clickRc4()
+{
+    QString filePath = QFileDialog::getOpenFileName(this, QString("Open Directory"), "");
+    if( filePath.isEmpty() == true)
+    {
+        return ;
+    }
 
+    if( QFile::exists(filePath) == true)
+    {
+        QUtf8Convert convert;
+        convert.rc4(filePath);
+        qDebug()<<"the end";
+    }
+}

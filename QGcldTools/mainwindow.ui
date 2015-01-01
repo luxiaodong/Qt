@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>473</width>
-    <height>384</height>
+    <height>430</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,13 +17,6 @@
    <layout class="QGridLayout" name="gridLayout_2">
     <item row="0" column="0">
      <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="0">
-       <widget class="QPushButton" name="buildAndroid">
-        <property name="text">
-         <string>build_Android</string>
-        </property>
-       </widget>
-      </item>
       <item row="1" column="0">
        <widget class="QPushButton" name="bezierPoly">
         <property name="text">
@@ -31,17 +24,10 @@
         </property>
        </widget>
       </item>
-      <item row="2" column="0">
-       <widget class="QPushButton" name="cityRoadMap">
+      <item row="5" column="0">
+       <widget class="QPushButton" name="build_res">
         <property name="text">
-         <string>cityRoadMap</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0">
-       <widget class="QPushButton" name="resourceDiff">
-        <property name="text">
-         <string>resources_diff</string>
+         <string>build_Resources</string>
         </property>
        </widget>
       </item>
@@ -49,13 +35,6 @@
        <widget class="QPushButton" name="cityPosition">
         <property name="text">
          <string>cityPosition</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="0">
-       <widget class="QPushButton" name="build_res">
-        <property name="text">
-         <string>build_Resources</string>
         </property>
        </widget>
       </item>
@@ -73,10 +52,10 @@
         </property>
        </widget>
       </item>
-      <item row="8" column="0">
-       <widget class="QPushButton" name="cubePoly">
+      <item row="11" column="0">
+       <widget class="QPushButton" name="decode">
         <property name="text">
-         <string>cubePoly</string>
+         <string>decode</string>
         </property>
        </widget>
       </item>
@@ -94,10 +73,38 @@
         </property>
        </widget>
       </item>
-      <item row="11" column="0">
-       <widget class="QPushButton" name="decode">
+      <item row="8" column="0">
+       <widget class="QPushButton" name="cubePoly">
         <property name="text">
-         <string>decode</string>
+         <string>cubePoly</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QPushButton" name="buildAndroid">
+        <property name="text">
+         <string>build_Android</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QPushButton" name="resourceDiff">
+        <property name="text">
+         <string>resources_diff</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QPushButton" name="cityRoadMap">
+        <property name="text">
+         <string>cityRoadMap</string>
+        </property>
+       </widget>
+      </item>
+      <item row="12" column="0">
+       <widget class="QPushButton" name="rc4">
+        <property name="text">
+         <string>rc4</string>
         </property>
        </widget>
       </item>

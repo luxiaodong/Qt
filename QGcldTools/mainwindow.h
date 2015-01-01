@@ -35,6 +35,7 @@ public slots:
     void clickResourceDiff();
     void clickUtf8Convert();
     void clickDecode();
+    void clickRc4();
     
 private:
     Ui::MainWindow *ui;
