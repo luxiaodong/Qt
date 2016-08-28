@@ -11,6 +11,7 @@
 #include "qbuildresourcedialog.h"
 #include "qresourcediffdialog.h"
 #include "qutf8convert.h"
+#include "qgoldscatter.h"
 
 #include <QDebug>
 
@@ -26,13 +27,11 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->cubePoly, SIGNAL(clicked()), this, SLOT(clickCubePoly()));
     connect(ui->tracePoints, SIGNAL(clicked()), this ,SLOT(clickTracePoint()));
     connect(ui->xiaoqianCollect, SIGNAL(clicked()), this, SLOT(clickXiaoqianCollect()));
-    connect(ui->build_res, SIGNAL(clicked()), this, SLOT(clickBuildResource()));
-    connect(ui->buildAndroid, SIGNAL(clicked()), this, SLOT(clickBuildAndroid()));
     connect(ui->resourceDiff, SIGNAL(clicked()), this, SLOT(clickResourceDiff()));
     connect(ui->utf8Bom, SIGNAL(clicked()), this, SLOT(clickUtf8Convert()));
     connect(ui->decode, SIGNAL(clicked()),this,SLOT(clickDecode()));
     connect(ui->rc4, SIGNAL(clicked()), this, SLOT(clickRc4()));
-
+    connect(ui->tqcfConvertDialog, SIGNAL(clicked()), this, SLOT(clickDialogConvert()));
     //clickBuildResource();
 }
 
@@ -80,9 +79,6 @@ void MainWindow::clickCubePoly()
 //    QCubePoly poly;
 //    poly.parse(filePath);
 
-
-
-
 //    QList<int> list;
 //    for(int i=0; i<11; ++i)
 //    {
@@ -101,16 +97,28 @@ void MainWindow::clickCubePoly()
 //        poly.parse2(filePath);
 //    }
 
-    QString filePath = QString("/Users/luxiaodong/Project/Git/luxiaodong/Matlab/gcld/data/kfworld/polyTable_2.txt");
-    QCubePoly poly;
-    poly.parse2(filePath);
 
-//    for(int i=0; i<3; ++i)
+
+//    for(int i=10000; i < 10010; ++i)
 //    {
-//        QString filePath = QString("/Users/luxiaodong/Project/Git/luxiaodong/Matlab/gcld/data/tanbao/polyTable_%1.txt").arg(i + 1);
+//        //list.append(i+1);
+//        QString filePath = QString("/Users/luxiaodong/Project/Git/luxiaodong/Matlab/nhly/data/juben/polyTable_%1.txt").arg(i+1);
+//        //qDebug()<<filePath;
 //        QCubePoly poly;
 //        poly.parse2(filePath);
 //    }
+
+//    for(int i=0; i<1; ++i)
+//    {
+//        QString filePath = QString("/Users/luxiaodong/Project/Git/luxiaodong/Matlab/gcld/data/japan/polyTable_%1.txt").arg(i + 1);
+//        QCubePoly poly;
+//        poly.parse2(filePath);
+//    }
+
+    QString filePath = QString("/Users/luxiaodong/Project/Git/luxiaodong/Matlab/gcld/data/world/polyTable.txt");
+    QCubePoly poly;
+    poly.parse2(filePath);
+
 }
 
 void MainWindow::clickTracePoint()
@@ -140,14 +148,23 @@ void MainWindow::clickTracePoint()
 //    }
 
 
-//    for(int i=0; i<3; ++i)
+//    for(int i=0; i<1; ++i)
 //    {
-//        QString filePath = QString("/Users/luxiaodong/Project/Git/luxiaodong/Matlab/gcld/data/tanbao/timeTable_%1.txt").arg(i + 1);
+//        QString filePath = QString("/Users/luxiaodong/Project/Git/luxiaodong/Matlab/gcld/data/japan/timeTable_%1.txt").arg(i + 1);
 //        QPolyTime poly;
 //        poly.parse2(filePath);
 //    }
 
-    QString filePath = QString("/Users/luxiaodong/Project/Git/luxiaodong/Matlab/gcld/data/kfworld/timeTable_2.txt");
+//    for(int i=10000; i < 10010; ++i)
+//    {
+//        QString filePath = QString("/Users/luxiaodong/Project/Git/luxiaodong/Matlab/nhly/data/juben/timeTable_%1.txt").arg(i+1);
+//        //qDebug()<<filePath;
+//        QPolyTime poly;
+//        poly.parse2(filePath);
+//    }
+
+
+    QString filePath = QString("/Users/luxiaodong/Project/Git/luxiaodong/Matlab/gcld/data/world/timeTable.txt");
     QPolyTime poly;
     poly.parse2(filePath);
 }
@@ -258,4 +275,29 @@ void MainWindow::clickRc4()
         convert.rc4(filePath);
         qDebug()<<"the end";
     }
+}
+
+void MainWindow::clickGoldDay()
+{
+    QString filePath = QFileDialog::getOpenFileName(this, QString("Open Directory"), "");
+    if( filePath.isEmpty() == true)
+    {
+        return ;
+    }
+
+    QGoldScatter gold;
+    gold.loadFile(filePath);
+}
+
+void MainWindow::clickDialogConvert()
+{
+    QString filePath = QString("/Users/luxiaodong/Downloads/task");
+    //QString filePath = QFileDialog::getOpenFileName(this, QString("Open Directory"), "");
+    if( filePath.isEmpty() == true)
+    {
+        return ;
+    }
+
+    QConvertDialogure dialog;
+    dialog.parse_dir(filePath);
 }

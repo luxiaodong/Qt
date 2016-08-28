@@ -23,7 +23,8 @@ SOURCES += main.cpp\
     qcollectxiaoqiandialogure.cpp \
     qbuildresourcedialog.cpp \
     qresourcediffdialog.cpp \
-    qutf8convert.cpp
+    qutf8convert.cpp \
+    qgoldscatter.cpp
 
 HEADERS  += mainwindow.h \
     qconvertdialogure.h \
@@ -35,11 +36,13 @@ HEADERS  += mainwindow.h \
     qcollectxiaoqiandialogure.h \
     qbuildresourcedialog.h \
     qresourcediffdialog.h \
-    qutf8convert.h
+    qutf8convert.h \
+    qgoldscatter.h
 
 FORMS    += mainwindow.ui \
     qbuildresourcedialog.ui \
-    qresourcediffdialog.ui
+    qresourcediffdialog.ui \
+    test.ui
 
 OTHER_FILES += \
     test.qml

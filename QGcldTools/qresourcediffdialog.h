@@ -46,6 +46,7 @@ private:
     QStringList m_otherList;
     QMap<QString,QString> m_oneMap;
     QMap<QString,QString> m_otherMap;
+    QMap<QString,int> m_otherSize;
     QMap<QString,QString> m_diffMap;
 
     QString m_standDir;

@@ -36,7 +36,9 @@ public slots:
     void clickUtf8Convert();
     void clickDecode();
     void clickRc4();
-    
+    void clickGoldDay();
+    void clickDialogConvert();
+
 private:
     Ui::MainWindow *ui;
 };

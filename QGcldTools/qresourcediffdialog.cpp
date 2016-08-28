@@ -99,6 +99,7 @@ void QResourceDiffDialog::clickStart()
     int addNumber = 0;
     int modNumber = 0;
     int delNumber = 0;
+    int addSize = 0;
     m_diffMap.clear();
 
     while(1)
@@ -112,7 +113,8 @@ void QResourceDiffDialog::clickStart()
         {
             QString otherStr = otherList.at(indexOther);
             m_diffMap.insert(otherStr, "A");
-            ui->textBrowser->append(QString("%1 %2").arg("A    ", otherStr));
+            addSize += m_otherSize.value(otherStr);
+            ui->textBrowser->append(QString("%1 %2 %3").arg("A    ", otherStr).arg( m_otherSize.value(otherStr) ) );
             indexOther++;
             addNumber++;
             continue;
@@ -135,8 +137,9 @@ void QResourceDiffDialog::clickStart()
         if(rtn > 0)
         {
             m_diffMap.insert(otherStr, "A");
+            addSize += m_otherSize.value(otherStr);
             QString srcStr = m_standMap.value(otherStr, "");
-            ui->textBrowser->append(QString("%1 %2\t%3").arg("A    ", otherStr, srcStr));
+            ui->textBrowser->append(QString("%1 %2\t%3 %4").arg("A    ", otherStr, srcStr).arg( m_otherSize.value(otherStr) ));
             indexOther++;
             addNumber++;
         }
@@ -158,8 +161,9 @@ void QResourceDiffDialog::clickStart()
             if(oneStrMd5 != otherStrMd5)
             {
                 m_diffMap.insert(oneStr, "M");
+                addSize += m_otherSize.value(otherStr);
                 QString srcStr = m_standMap.value(oneStr, "");
-                ui->textBrowser->append(QString("%1 %2\t%3").arg("M    ", oneStr, srcStr));
+                ui->textBrowser->append(QString("%1 %2\t%3 %4").arg("M    ", oneStr, srcStr).arg( m_otherSize.value(otherStr)));
                 modNumber++;
             }
         }
@@ -169,6 +173,7 @@ void QResourceDiffDialog::clickStart()
     ui->textBrowser->append( QString("Add number:%1").arg(addNumber) );
     ui->textBrowser->append( QString("Del number:%1").arg(delNumber) );
     ui->textBrowser->append( QString("Mod number:%1").arg(modNumber) );
+    ui->textBrowser->append( QString("Total size:%1").arg(addSize) );
 
     qDebug()<<"love is over";
 }
@@ -202,6 +207,7 @@ bool QResourceDiffDialog::loadOneRes2()
 bool QResourceDiffDialog::loadOtherRes2()
 {
     m_otherMap.clear();
+    m_otherSize.clear();
     QString filePath = QString("%1/res.lua").arg(m_otherDir);
     QFile file(filePath);
 
@@ -218,6 +224,8 @@ bool QResourceDiffDialog::loadOtherRes2()
         {
             QStringList tempList = str.split("\"");
             m_otherMap.insert(tempList.at(1), tempList.at(3) );
+            QString size = tempList.last().split("=").last().split("}").first();
+            m_otherSize.insert(tempList.at(1), size.toInt());
         }
     }
 

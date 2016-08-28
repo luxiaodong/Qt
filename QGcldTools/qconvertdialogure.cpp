@@ -1,5 +1,6 @@
 #include "qconvertdialogure.h"
 #include <QFile>
+#include <QDir>
 #include <QTextStream>
 #include <QDebug>
 
@@ -212,5 +213,109 @@ void QConvertDialogure::parse(QString filePath)
     file2.close();
     qDebug()<<"ok";
 }
+
+QString QConvertDialogure::parse_file(QString filePath)
+{
+    if(filePath.isEmpty() == true)
+    {
+        return "";
+    }
+
+    QFile file(filePath);
+
+    if(file.open(QIODevice::ReadOnly) == false)
+    {
+        return "";
+    }
+
+    int index = 0;
+    QString dialogString = "";
+    QTextStream stream(&file);
+    while(stream.atEnd() == false)
+    {
+        QString line = stream.readLine().trimmed();
+
+        if( line.contains("<talk")  == true)
+        {
+            if(index == 0)
+            {
+                QString name = filePath.split('/').last();
+                name = name.left(name.size() - 4);
+                dialogString += QString("function dialogue.get_%1()\n").arg(name);
+                dialogString += QString("    local data = {}\n");
+                index++;
+            }
+
+            QStringList list = line.split('"');
+            QString pos = list.at(1);
+            QString pic = list.at(3);
+            QString name = list.at(5);
+            QString last = list.last();
+
+            if( pic==QString("{0}") )
+            {
+                pic = QString("zhugong");
+            }
+
+            int i = last.indexOf('>');
+            int j = last.indexOf('<');
+            QString des = last.mid(i+1, j-i-1);
+//qDebug()<<des;
+            if(des.contains("style") == true)
+            {
+                des.remove("[/style]");
+                des.remove(QRegExp("style\\d"));
+                des.remove("[]");
+            }
+//qDebug()<<des;
+            m_list.append(des);
+            dialogString += QString("    data[%1] = {pos=%2,pic=\"%3\",name=\"%4\",w=language.get(%5)},\n").arg(index).arg(pos,pic,name).arg(m_list.count());
+            index++;
+        }
+    }
+
+    file.close();
+
+    if(index != 0)
+    {
+        dialogString += QString("    return data\n");
+        dialogString += QString("end\n");
+    }
+
+    //qDebug()<<dialogString;
+    return dialogString;
+}
+
+void QConvertDialogure::parse_dir(QString filePath)
+{
+    QDir dir(filePath);
+    QFileInfoList list = dir.entryInfoList(QDir::NoDotAndDotDot | QDir::Files);
+
+    QString str = "";
+    m_list.clear();
+    foreach(QFileInfo fileInfo, list)
+    {
+        QString filePath = fileInfo.absoluteFilePath();
+        QString temp = this->parse_file(filePath);
+        if(temp.isEmpty() == false)
+        {
+           str += temp;
+           str += "\n";
+        }
+    }
+
+    qDebug()<<str;
+
+    str = "";
+    int i = 1;
+    foreach(QString single, m_list)
+    {
+        str += QString(" [\"dialog_%1\"] = \"%2\",\n").arg(i).arg(single);
+        i++;
+    }
+
+    qDebug()<<str;
+}
+
 
 

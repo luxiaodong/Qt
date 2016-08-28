@@ -9,7 +9,8 @@ QCubePoly::QCubePoly()
 {
     //m_name = "jubenCubePoly";
     //m_name = "tanbaoCubePoly";
-    m_name = "kfWorldCubePoly";
+    //m_name = "kfWorldCubePoly";
+    m_name = "japanCubePoly";
 }
 
 QString QCubePoly::convert(QString&line1, QString& line2)

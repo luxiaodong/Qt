@@ -7,104 +7,103 @@
     <x>0</x>
     <y>0</y>
     <width>473</width>
-    <height>430</height>
+    <height>498</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QGridLayout" name="gridLayout_2">
+   <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
-     <layout class="QGridLayout" name="gridLayout">
-      <item row="1" column="0">
-       <widget class="QPushButton" name="bezierPoly">
-        <property name="text">
-         <string>bezierPoly</string>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QSplitter" name="splitter">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
         </property>
+        <widget class="QPushButton" name="resourceDiff">
+         <property name="text">
+          <string>resources_diff</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="cubePoly">
+         <property name="text">
+          <string>cubePoly</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="tracePoints">
+         <property name="text">
+          <string>tracePoints</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="decode">
+         <property name="text">
+          <string>decode</string>
+         </property>
+        </widget>
        </widget>
       </item>
-      <item row="5" column="0">
-       <widget class="QPushButton" name="build_res">
-        <property name="text">
-         <string>build_Resources</string>
+      <item>
+       <widget class="QSplitter" name="splitter_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
         </property>
+        <widget class="QPushButton" name="cityRoadMap">
+         <property name="text">
+          <string>cityRoadMap</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="bezierPoly">
+         <property name="text">
+          <string>bezierPoly</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="cityPosition">
+         <property name="text">
+          <string>cityPosition</string>
+         </property>
+        </widget>
        </widget>
       </item>
-      <item row="4" column="0">
-       <widget class="QPushButton" name="cityPosition">
-        <property name="text">
-         <string>cityPosition</string>
+      <item>
+       <widget class="QSplitter" name="splitter_3">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
         </property>
+        <widget class="QPushButton" name="xiaoqianCollect">
+         <property name="text">
+          <string>xiaoqianCollect</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="convertDialogue">
+         <property name="text">
+          <string>gcld convertDialogue</string>
+         </property>
+        </widget>
        </widget>
       </item>
-      <item row="6" column="0">
-       <widget class="QPushButton" name="convertDialogue">
-        <property name="text">
-         <string>convertDialogue</string>
+      <item>
+       <widget class="QSplitter" name="splitter_4">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
         </property>
+        <widget class="QPushButton" name="utf8Bom">
+         <property name="text">
+          <string>utf-8 BOM to without BOM</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="rc4">
+         <property name="text">
+          <string>rc4</string>
+         </property>
+        </widget>
        </widget>
       </item>
-      <item row="7" column="0">
-       <widget class="QPushButton" name="xiaoqianCollect">
+      <item>
+       <widget class="QPushButton" name="tqcfConvertDialog">
         <property name="text">
-         <string>xiaoqianCollect</string>
-        </property>
-       </widget>
-      </item>
-      <item row="11" column="0">
-       <widget class="QPushButton" name="decode">
-        <property name="text">
-         <string>decode</string>
-        </property>
-       </widget>
-      </item>
-      <item row="9" column="0">
-       <widget class="QPushButton" name="tracePoints">
-        <property name="text">
-         <string>tracePoints</string>
-        </property>
-       </widget>
-      </item>
-      <item row="10" column="0">
-       <widget class="QPushButton" name="utf8Bom">
-        <property name="text">
-         <string>utf-8 BOM to without BOM</string>
-        </property>
-       </widget>
-      </item>
-      <item row="8" column="0">
-       <widget class="QPushButton" name="cubePoly">
-        <property name="text">
-         <string>cubePoly</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="0">
-       <widget class="QPushButton" name="buildAndroid">
-        <property name="text">
-         <string>build_Android</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0">
-       <widget class="QPushButton" name="resourceDiff">
-        <property name="text">
-         <string>resources_diff</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="QPushButton" name="cityRoadMap">
-        <property name="text">
-         <string>cityRoadMap</string>
-        </property>
-       </widget>
-      </item>
-      <item row="12" column="0">
-       <widget class="QPushButton" name="rc4">
-        <property name="text">
-         <string>rc4</string>
+         <string>tqcf convertDialog</string>
         </property>
        </widget>
       </item>

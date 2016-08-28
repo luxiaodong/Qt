@@ -35,6 +35,10 @@ public:
 
 public:
     void parse(QString filePath);
+    QString parse_file(QString filePath);
+    void parse_dir(QString filePath);
+
+    QStringList m_list;
 
 public:
     QList<QSingleDialogue*> m_dialogues;
