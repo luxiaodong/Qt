@@ -23,22 +23,11 @@ public:
     ~MainWindow();
 
 public slots:
-    void clickConvertDialogue();
-    void clickConvertBezierPoly();
     void clickCityRoadMap();
     void clickCityPosition();
     void clickCubePoly();
     void clickTracePoint();
-    void clickXiaoqianCollect();
-    void clickBuildResource();
-    void clickBuildAndroid();
-    void clickResourceDiff();
     void clickUtf8Convert();
-    void clickDecode();
-    void clickRc4();
-    void clickGoldDay();
-    void clickDialogConvert();
-
 private:
     Ui::MainWindow *ui;
 };

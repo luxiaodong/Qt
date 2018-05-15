@@ -10,7 +10,13 @@ QCubePoly::QCubePoly()
     //m_name = "jubenCubePoly";
     //m_name = "tanbaoCubePoly";
     //m_name = "kfWorldCubePoly";
-    m_name = "japanCubePoly";
+    //m_name = "japanCubePoly";
+    //m_name = "gaoliCubePoly";
+    //m_name = "jubenCubePoly";
+    //m_name = "liuqiuCubePoly";
+    //m_name = "cityPath";
+    //m_name = "nanzhaoCubePoly";
+    m_name = "qxgj";
 }
 
 QString QCubePoly::convert(QString&line1, QString& line2)

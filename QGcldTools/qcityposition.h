@@ -10,6 +10,9 @@ public:
     QCityPosition();
     QString convert(QString&);
     void parse(QString&);
+
+public:
+    int m_mapHeight;
 };
 
 #endif // QCITYPOSITION_H

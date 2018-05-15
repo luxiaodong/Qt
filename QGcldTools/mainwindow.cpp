@@ -14,24 +14,26 @@
 #include "qgoldscatter.h"
 
 #include <QDebug>
+#include <QMediaPlayer>
+#include <QUrl>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    connect(ui->convertDialogue,SIGNAL(clicked()),this,SLOT(clickConvertDialogue()));
-    connect(ui->bezierPoly, SIGNAL(clicked()),this, SLOT(clickConvertBezierPoly()));
+    //connect(ui->convertDialogue,SIGNAL(clicked()),this,SLOT(clickConvertDialogue()));
+    //connect(ui->bezierPoly, SIGNAL(clicked()),this, SLOT(clickConvertBezierPoly()));
     connect(ui->cityRoadMap, SIGNAL(clicked()), this, SLOT(clickCityRoadMap()));
     connect(ui->cityPosition, SIGNAL(clicked()), this, SLOT(clickCityPosition()));
     connect(ui->cubePoly, SIGNAL(clicked()), this, SLOT(clickCubePoly()));
     connect(ui->tracePoints, SIGNAL(clicked()), this ,SLOT(clickTracePoint()));
-    connect(ui->xiaoqianCollect, SIGNAL(clicked()), this, SLOT(clickXiaoqianCollect()));
-    connect(ui->resourceDiff, SIGNAL(clicked()), this, SLOT(clickResourceDiff()));
+    //connect(ui->xiaoqianCollect, SIGNAL(clicked()), this, SLOT(clickXiaoqianCollect()));
+    //connect(ui->resourceDiff, SIGNAL(clicked()), this, SLOT(clickResourceDiff()));
     connect(ui->utf8Bom, SIGNAL(clicked()), this, SLOT(clickUtf8Convert()));
-    connect(ui->decode, SIGNAL(clicked()),this,SLOT(clickDecode()));
-    connect(ui->rc4, SIGNAL(clicked()), this, SLOT(clickRc4()));
-    connect(ui->tqcfConvertDialog, SIGNAL(clicked()), this, SLOT(clickDialogConvert()));
+    //connect(ui->decode, SIGNAL(clicked()),this,SLOT(clickDecode()));
+    //connect(ui->rc4, SIGNAL(clicked()), this, SLOT(clickRc4()));
+    //connect(ui->tqcfConvertDialog, SIGNAL(clicked()), this, SLOT(clickDialogConvert()));
     //clickBuildResource();
 }
 
@@ -40,34 +42,16 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::clickConvertDialogue()
-{
-    QString filePath = QString("/home/luxiaodong/Dropbox/dialogue.xml");
-    //QString filePath = QString("/Users/ruizhan/Dropbox/work/dialogue.xml");
-    QConvertDialogure convert;
-    convert.parse(filePath);
-}
-
-void MainWindow::clickConvertBezierPoly()
-{
-    QString filePath = QString("/home/luxiaodong/Dropbox/work/bezierpoly.txt");
-    //QString filePath = QString("/Users/ruizhan/Dropbox/work/bezierpoly.txt");
-    QBezierPoly bezierPoly;
-    bezierPoly.parse(filePath);
-}
-
 void MainWindow::clickCityRoadMap()
 {
-    //QString filePath = QString("/home/luxiaodong/Dropbox/work/cityRoadMap.txt");
-    QString filePath = QString("/Users/ruizhan/Dropbox/work/cityRoadMap.txt");
+    QString filePath = QString("/Users/luxiaodong/Project/Git/luxiaodong/Matlab/gcld/data/qxgj2/Road.xml");
     QCityRoadMap cityMap;
     cityMap.parse(filePath);
 }
 
 void MainWindow::clickCityPosition()
 {
-    //QString filePath = QString("/home/luxiaodong/Dropbox/work/cityRoadMap.txt");
-    QString filePath = QString("/Users/ruizhan/Dropbox/work/cityPosition.lua");
+    QString filePath = QString("/Users/luxiaodong/Project/Git/luxiaodong/Matlab/gcld/data/qxgj2/CityInfo.xml");
     QCityPosition city;
     city.parse(filePath);
 }
@@ -97,8 +81,6 @@ void MainWindow::clickCubePoly()
 //        poly.parse2(filePath);
 //    }
 
-
-
 //    for(int i=10000; i < 10010; ++i)
 //    {
 //        //list.append(i+1);
@@ -110,12 +92,12 @@ void MainWindow::clickCubePoly()
 
 //    for(int i=0; i<1; ++i)
 //    {
-//        QString filePath = QString("/Users/luxiaodong/Project/Git/luxiaodong/Matlab/gcld/data/japan/polyTable_%1.txt").arg(i + 1);
+//        QString filePath = QString("/Users/luxiaodong/Project/Git/luxiaodong/Matlab/gcld/data/liuqiu/polyTable_%1.txt").arg(i + 1);
 //        QCubePoly poly;
 //        poly.parse2(filePath);
 //    }
 
-    QString filePath = QString("/Users/luxiaodong/Project/Git/luxiaodong/Matlab/gcld/data/world/polyTable.txt");
+    QString filePath = QString("/Users/luxiaodong/Project/Git/luxiaodong/Matlab/gcld/data/qxgj/polyTable.txt");
     QCubePoly poly;
     poly.parse2(filePath);
 
@@ -150,7 +132,7 @@ void MainWindow::clickTracePoint()
 
 //    for(int i=0; i<1; ++i)
 //    {
-//        QString filePath = QString("/Users/luxiaodong/Project/Git/luxiaodong/Matlab/gcld/data/japan/timeTable_%1.txt").arg(i + 1);
+//        QString filePath = QString("/Users/luxiaodong/Project/Git/luxiaodong/Matlab/gcld/data/liuqiu/timeTable_%1.txt").arg(i + 1);
 //        QPolyTime poly;
 //        poly.parse2(filePath);
 //    }
@@ -163,69 +145,9 @@ void MainWindow::clickTracePoint()
 //        poly.parse2(filePath);
 //    }
 
-
-    QString filePath = QString("/Users/luxiaodong/Project/Git/luxiaodong/Matlab/gcld/data/world/timeTable.txt");
+    QString filePath = QString("/Users/luxiaodong/Project/Git/luxiaodong/Matlab/gcld/data/qxgj/timeTable.txt");
     QPolyTime poly;
     poly.parse2(filePath);
-}
-
-void MainWindow::clickXiaoqianCollect()
-{
-    QString filePath = QString("/Users/ruizhan/Dropbox/work/constant2.lua");
-    QCollectXiaoqianDialogure collect;
-    collect.parse(filePath);
-}
-
-void MainWindow::clickBuildResource()
-{
-    this->setVisible(false);
-    QBuildResourceDialog dialog(this);
-    dialog.exec();
-    this->setVisible(true);
-
-//    QSettings settings("reign", "QGcldTools");
-//    QString oldFilePath = settings.value("build_resources_dir","").toString();
-//    QString filePath = QFileDialog::getExistingDirectory(this, QString("Open Directory"), oldFilePath, QFileDialog::ShowDirsOnly);
-//    if( filePath.isEmpty() == true)
-//    {
-//        return ;
-//    }
-
-//    if( QFile::exists(filePath) == true)
-//    {
-//        QProcess::execute(QString("./build_resources.sh") , QStringList()<<filePath);
-//        settings.setValue("build_resources_dir", filePath);
-//        QMessageBox::information(this,"build_Resources","Love is Over");
-//    }
-
-
-}
-
-void MainWindow::clickBuildAndroid()
-{
-    //资源assert没进来
-    QSettings settings("reign", "QGcldTools");
-    QString oldFilePath = settings.value("build_android_dir","").toString();
-    QString filePath = QFileDialog::getExistingDirectory(this, QString("Open Directory"), oldFilePath, QFileDialog::ShowDirsOnly);
-    if( filePath.isEmpty() == true)
-    {
-        return ;
-    }
-
-    if( QFile::exists(filePath) == true)
-    {
-        QProcess::execute(QString("./build_android.sh") , QStringList()<<filePath);
-        settings.setValue("build_android_dir", filePath);
-        QMessageBox::information(this,"build_Resources","Love is Over");
-    }
-}
-
-void MainWindow::clickResourceDiff()
-{
-    this->setVisible(false);
-    QResourceDiffDialog dialog(this);
-    dialog.exec();
-    this->setVisible(true);
 }
 
 void MainWindow::clickUtf8Convert()
@@ -245,59 +167,3 @@ void MainWindow::clickUtf8Convert()
     }
 }
 
-void MainWindow::clickDecode()
-{
-    QString filePath = QFileDialog::getOpenFileName(this, QString("Open Directory"), "");
-    if( filePath.isEmpty() == true)
-    {
-        return ;
-    }
-
-    if( QFile::exists(filePath) == true)
-    {
-        QUtf8Convert convert;
-        //convert.convert(filePath);
-        convert.decode(filePath);
-    }
-}
-
-void MainWindow::clickRc4()
-{
-    QString filePath = QFileDialog::getOpenFileName(this, QString("Open Directory"), "");
-    if( filePath.isEmpty() == true)
-    {
-        return ;
-    }
-
-    if( QFile::exists(filePath) == true)
-    {
-        QUtf8Convert convert;
-        convert.rc4(filePath);
-        qDebug()<<"the end";
-    }
-}
-
-void MainWindow::clickGoldDay()
-{
-    QString filePath = QFileDialog::getOpenFileName(this, QString("Open Directory"), "");
-    if( filePath.isEmpty() == true)
-    {
-        return ;
-    }
-
-    QGoldScatter gold;
-    gold.loadFile(filePath);
-}
-
-void MainWindow::clickDialogConvert()
-{
-    QString filePath = QString("/Users/luxiaodong/Downloads/task");
-    //QString filePath = QFileDialog::getOpenFileName(this, QString("Open Directory"), "");
-    if( filePath.isEmpty() == true)
-    {
-        return ;
-    }
-
-    QConvertDialogure dialog;
-    dialog.parse_dir(filePath);
-}

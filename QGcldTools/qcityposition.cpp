@@ -6,24 +6,28 @@
 
 QCityPosition::QCityPosition()
 {
+    m_mapHeight = 3600;
 }
 
 QString QCityPosition::convert(QString& line)
 {
-    int index0 = line.indexOf("_");
-    int index1 = line.indexOf("_", index0 + 1);
-    int index2 = line.indexOf("=", index1 + 1);
-    int index3 = line.indexOf("=", index2 + 1);
-    int index4 = line.indexOf(",", index3 + 1);
-    int index5 = line.indexOf("=", index4 + 1);
-    int index6 = line.indexOf(",", index5 + 1);
+    int index0 = line.indexOf("id=");
+    int index1 = line.indexOf("\"", index0+1);
+    int index2 = line.indexOf("\"", index1+1);
+    QString id = line.mid(index1+1, index2-index1-1);
 
-    QString s1 = line.mid(index1 + 1, index2 - index1 - 1);
-    QString s2 = line.mid(index3 + 1, index4 - index3 - 1);
-    QString s3 = line.mid(index5 + 1, index6 - index5 - 1);
+    index0 = line.indexOf("x=");
+    index1 = line.indexOf("\"", index0+1);
+    index2 = line.indexOf("\"", index1+1);
+    QString x = line.mid(index1+1, index2-index1-1);
 
-    QString str = QString("%1 %2 %3").arg(s1,s2,s3);
-    return str;
+    index0 = line.indexOf("y=");
+    index1 = line.indexOf("\"", index0+1);
+    index2 = line.indexOf("\"", index1+1);
+    QString y = line.mid(index1+1, index2-index1-1);
+    int iy = 3600 - y.toInt();
+
+    return QString("%1\t%2\t%3").arg(id,x).arg(iy);
 }
 
 void QCityPosition::parse(QString& filePath)
@@ -46,17 +50,16 @@ void QCityPosition::parse(QString& filePath)
     while(stream.atEnd() == false)
     {
         QString line = stream.readLine().trimmed();
-        if (line.contains("world_building_") == true)
+        if (line.contains("city") && line.contains("id") && line.contains("x") && line.contains("y") )
         {
             list.append(convert(line));
-            //qDebug()<<convert(line);
         }
     }
 
     file.close();
 
     QString newfilePath = filePath;
-    newfilePath.replace("cityPosition.lua", "cityPosition.txt");
+    newfilePath.replace("CityInfo.xml", "data_city.txt");
     QFile file2(newfilePath);
 
     if(file2.open(QIODevice::WriteOnly) == false)

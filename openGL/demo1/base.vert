@@ -1,10 +1,9 @@
-attribute vec4 qt_Vertex;
-attribute vec4 qt_MultiTexCoord0;
-uniform mat4 qt_ModelViewProjectionMatrix;
-varying vec4 qt_TexCoord0;
-
-void main(void)
+#version 410 core
+layout (location = 0) in vec3 inPosition;
+layout (location = 1) in vec3 inColor;
+smooth out vec4 vertOutColor;
+void main()
 {
-    gl_Position = qt_ModelViewProjectionMatrix * qt_Vertex;
-    qt_TexCoord0 = qt_MultiTexCoord0;
+    gl_Position = vec4(inPosition, 1.0);
+    vertOutColor = vec4(inColor, 1.0);
 }
